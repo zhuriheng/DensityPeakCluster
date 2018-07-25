@@ -8,6 +8,8 @@ from error_wrongvec import WrongVecError
 import numpy as np
 import numpy.linalg as linalg
 
+import scipy
+
 class Distance():
   """
     abstract class, represent distance of two vector
@@ -115,6 +117,8 @@ class SqrtDistance(Distance):
     """
     super(SqrtDistance, self).distance(vec1, vec2)      #super method
     vec=vec1-vec2
-    return sqrt(sum([pow(item, 2) for item in vec]))
+    return linalg.norm(vec)
+    # return scipy.linalg.norm(vec)
+    # return sqrt(sum([pow(item, 2) for item in vec]))
 #end SqrtDistance
 
